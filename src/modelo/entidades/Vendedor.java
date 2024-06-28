@@ -1,8 +1,11 @@
 package modelo.entidades;
 
 import java.io.Serializable;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAccessor;
 import java.util.Objects;
 
 public class Vendedor implements Serializable {
@@ -12,12 +15,16 @@ public class Vendedor implements Serializable {
 	private Integer id;
 	private String nome;
 	private String email;
-	private LocalDate dataNasc;
+	private Date dataNasc;
 	private Double salario;
 	private Departamento departamento;
-	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	
+	public Vendedor() {
+		
+	}
 
-	public Vendedor(Integer id, String nome, String email, LocalDate dataNasc, Double salario,
+	public Vendedor(Integer id, String nome, String email, Date dataNasc, Double salario,
 			Departamento departamento) {
 		this.id = id;
 		this.nome = nome;
@@ -51,11 +58,11 @@ public class Vendedor implements Serializable {
 		this.email = email;
 	}
 
-	public LocalDate getDataNasc() {
+	public Date getDataNasc() {
 		return dataNasc;
 	}
 
-	public void setDataNasc(LocalDate dataNasc) {
+	public void setDataNasc(Date dataNasc) {
 		this.dataNasc = dataNasc;
 	}
 
@@ -94,7 +101,7 @@ public class Vendedor implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Vendedor [id=" + id + ", nome=" + nome + ", email=" + email + ", dataNasc=" + dtf.format(dataNasc) + ", salario="
+		return "Vendedor [id=" + id + ", nome=" + nome + ", email=" + email + ", dataNasc=" + sdf.format(dataNasc) + ", salario="
 				+ String.format("%.2f", salario) + ", departamento=" + departamento + "]";
 	}
 
