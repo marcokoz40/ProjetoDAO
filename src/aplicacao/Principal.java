@@ -3,6 +3,8 @@ package aplicacao;
 import java.time.LocalDate;
 import java.util.Locale;
 
+import modelo.dao.FabricaDao;
+import modelo.dao.VendedorDao;
 import modelo.entidades.Departamento;
 import modelo.entidades.Vendedor;
 
@@ -14,6 +16,7 @@ public class Principal {
 		
 		Departamento dep = new Departamento(1, "Eletrônicos");
 		Vendedor vend = new Vendedor(1, "José", "jose@gmail.com", LocalDate.parse("1977-12-24"), 3000.0, dep);
+		VendedorDao vendedorDao = FabricaDao.criaVendedorDao();
 		System.out.println(vend);
 
 	}
