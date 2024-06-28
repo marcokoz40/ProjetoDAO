@@ -3,6 +3,7 @@ package aplicacao;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Scanner;
 
 import modelo.dao.FabricaDao;
 import modelo.dao.VendedorDao;
@@ -14,6 +15,7 @@ public class Principal {
 	public static void main(String[] args) {
 		
 		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
 				
 		VendedorDao vendedorDao = FabricaDao.criaVendedorDao();
 		System.out.println("===== Teste 1 =====");
@@ -35,6 +37,12 @@ public class Principal {
 		vend.setNome("Mariazinha");
 		vendedorDao.update(vend);
 		System.out.println("TABELA ATUALIZADA");
+		System.out.println("\n ===== Teste 6 =====");
+		System.out.print("Informe o id a ser excluido: ");
+		int id = sc.nextInt();
+		vendedorDao.deleteById(id);
+		System.out.println("ID EXCLUIDO");
+		sc.close();
 	}
 
 }
