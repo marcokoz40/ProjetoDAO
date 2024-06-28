@@ -22,6 +22,9 @@ public class Principal {
         Departamento dep = new Departamento(2, null);
 		List<Vendedor> lista = vendedorDao.findByDepartament(dep);
 		lista.forEach(System.out::println);
+		System.out.println("\n ===== Teste 3 =====");
+       	lista = vendedorDao.findAll();
+		lista.forEach(System.out::println);
 	}
 
 }
