@@ -1,11 +1,8 @@
 package modelo.entidades;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalAccessor;
 import java.util.Objects;
 
 public class Vendedor implements Serializable {
@@ -101,7 +98,7 @@ public class Vendedor implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Vendedor [id=" + id + ", nome=" + nome + ", email=" + email + ", dataNasc=" + sdf.format(dataNasc) + ", salario="
+		return "Vendedor [id=" + id + ", nome=" + nome + ", email=" + email + ", dataNasc="  + dataNasc + ", salario="
 				+ String.format("%.2f", salario) + ", departamento=" + departamento + "]";
 	}
 

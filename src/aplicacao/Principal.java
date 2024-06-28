@@ -1,5 +1,6 @@
 package aplicacao;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -25,6 +26,10 @@ public class Principal {
 		System.out.println("\n ===== Teste 3 =====");
        	lista = vendedorDao.findAll();
 		lista.forEach(System.out::println);
+		System.out.println("\n ===== Teste 4 =====");
+		Vendedor vend1 = new Vendedor(null, "Marco", "marco@gmail.com", new Date(), 5000.00, dep);
+		vendedorDao.insert(vend1);
+		System.out.println("Id = " + vend1.getId());
 	}
 
 }
