@@ -1,9 +1,13 @@
 package modelo.entidades;
 
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
-public class Vendedor {
+public class Vendedor implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 
 	private Integer id;
 	private String nome;
@@ -11,6 +15,7 @@ public class Vendedor {
 	private LocalDate dataNasc;
 	private Double salario;
 	private Departamento departamento;
+	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
 	public Vendedor(Integer id, String nome, String email, LocalDate dataNasc, Double salario,
 			Departamento departamento) {
@@ -72,7 +77,7 @@ public class Vendedor {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(dataNasc, departamento, email, id, nome, salario);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -84,15 +89,13 @@ public class Vendedor {
 		if (getClass() != obj.getClass())
 			return false;
 		Vendedor other = (Vendedor) obj;
-		return Objects.equals(dataNasc, other.dataNasc) && Objects.equals(departamento, other.departamento)
-				&& Objects.equals(email, other.email) && Objects.equals(id, other.id)
-				&& Objects.equals(nome, other.nome) && Objects.equals(salario, other.salario);
+		return Objects.equals(id, other.id);
 	}
 
 	@Override
 	public String toString() {
-		return "Vendedor [id=" + id + ", nome=" + nome + ", email=" + email + ", dataNasc=" + dataNasc + ", salario="
-				+ salario + ", departamento=" + departamento + "]";
+		return "Vendedor [id=" + id + ", nome=" + nome + ", email=" + email + ", dataNasc=" + dtf.format(dataNasc) + ", salario="
+				+ String.format("%.2f", salario) + ", departamento=" + departamento + "]";
 	}
 
 }
