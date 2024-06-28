@@ -30,6 +30,11 @@ public class Principal {
 		Vendedor vend1 = new Vendedor(null, "Marco", "marco@gmail.com", new Date(), 5000.00, dep);
 		vendedorDao.insert(vend1);
 		System.out.println("Id = " + vend1.getId());
+		System.out.println("\n ===== Teste 5 =====");
+		vend = vendedorDao.findById(1);
+		vend.setNome("Mariazinha");
+		vendedorDao.update(vend);
+		System.out.println("TABELA ATUALIZADA");
 	}
 
 }
